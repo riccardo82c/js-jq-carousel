@@ -26,7 +26,13 @@ $(document).ready(function () {
 	$('.next').click(
 		function () {
 			nextImg();
-			nextCircle();
+
+		});
+
+	// 4. associo a .prev la chiamata alla funzione prevImg
+	$('.prev').click(
+		function () {
+			prevImg();
 		});
 
 
@@ -61,10 +67,26 @@ $(document).ready(function () {
 
 	// funzione prevImg - toglie la classe active al nodo corrente e la mette al precedente 
 	function prevImg() {
-		console.log('prova');
+		// def var locali
 		let imgActive = $('.images img.active');
+		let circleActive = $('.nav i.active');
+		// rimozione class .active
 		imgActive.removeClass('active');
-		imgActive.prev().addClass('active');
+		circleActive.removeClass('active');
+		// if block
+		if (imgActive.hasClass('first')) {
+			$('.images img.last').addClass('active');
+			$('.nav i.last').addClass('active');
+		} else {
+			imgActive.prev().addClass('active');
+			circleActive.prev().addClass('active')
+		}
+
+
+
+
+
+
 	}
 
 
