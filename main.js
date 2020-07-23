@@ -13,6 +13,7 @@ Consiglio del giorno:
 // 1. associare a next una funzione
 // 2. alla pressione del tasto devo togliere la classe active al pulsante corrente e spostarla al successivo
 // 3. per ogni pulsante devo verificare che non abbia la classe last, in tal caso devo ripartire dal primo come successivo
+// 3.1 faccio la stessa cosa anche per i pallini del nav
 // 4. procedo all'inverso pulsante prev
 
 
@@ -25,7 +26,7 @@ $(document).ready(function () {
 	$('.next').click(
 		function () {
 			nextImg();
-
+			nextCircle();
 		});
 
 
@@ -37,21 +38,26 @@ $(document).ready(function () {
 	function nextImg() {
 		// associo ad una variabile locale imgActive il nodo DOM .active
 		let imgActive = $('.images img.active');
+		// stessa cosa per i pallini del nav
+		let circleActive = $('.nav i.active');
 		// rimuovo dal imgActive la classe active
 		imgActive.removeClass('active');
+		circleActive.removeClass('active');
 
 		// blocco if
 		// se l'elemento corrente (ex .active) ha ANCHE CLASSE .last
 		// associo la classe .active al primo elemento dello slider images
 		if (imgActive.hasClass('last')) {
 			$('.images img.first').addClass('active');
+			$('.nav i.first').addClass('active');
 			// altrimenti  l'associo al successivo
 		} else {
 			imgActive.next().addClass('active');
+			circleActive.next().addClass('active');
 		}
-
-
 	}
+
+
 
 	// funzione prevImg - toglie la classe active al nodo corrente e la mette al precedente 
 	function prevImg() {
