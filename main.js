@@ -16,23 +16,49 @@ Consiglio del giorno:
 // 4. procedo all'inverso pulsante prev
 
 
-
-// 1. 
-console.log('prova');
-
+// 0. inizializzo document ready
 $(document).ready(function () {
+
+
+
+	// 1. associo a .next all'evento .click la chiamata alla funzione di callback nextImg
 	$('.next').click(
 		function () {
-			console.log('next-pressed');
+			nextImg();
 
 		});
+
+
+
+	/* funzione */
+
+
+	// funzione nextImg - toglie la classe active al nodo corrente e la mette al successivo 
+	function nextImg() {
+		console.log('prova');
+		let imgActive = $('.images img.active');
+		imgActive.removeClass('active');
+
+
+		if (imgActive.hasClass('last')) {
+			$('.images img.first').addClass('active');
+
+		} else {
+			imgActive.next().addClass('active');
+		}
+
+
+	}
+
+	// funzione prevImg - toglie la classe active al nodo corrente e la mette al precedente 
+	function prevImg() {
+		console.log('prova');
+		let imgActive = $('.images img.active');
+		imgActive.removeClass('active');
+		imgActive.prev().addClass('active');
+	}
+
+
+
+
 });
-
-
-
-
-
-
-
-
-/* funzione */
