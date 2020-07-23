@@ -35,14 +35,17 @@ $(document).ready(function () {
 
 	// funzione nextImg - toglie la classe active al nodo corrente e la mette al successivo 
 	function nextImg() {
-		console.log('prova');
+		// associo ad una variabile locale imgActive il nodo DOM .active
 		let imgActive = $('.images img.active');
+		// rimuovo dal imgActive la classe active
 		imgActive.removeClass('active');
 
-
+		// blocco if
+		// se l'elemento corrente (ex .active) ha ANCHE CLASSE .last
+		// associo la classe .active al primo elemento dello slider images
 		if (imgActive.hasClass('last')) {
 			$('.images img.first').addClass('active');
-
+			// altrimenti  l'associo al successivo
 		} else {
 			imgActive.next().addClass('active');
 		}
