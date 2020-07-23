@@ -35,6 +35,46 @@ $(document).ready(function () {
 			prevImg();
 		});
 
+	// BONUS click sul cerchio per cambiare immagine 
+	$('.nav i').click(
+		function () {
+			setCircle(this);
+		});
+
+
+	/******************************** bonus section ***************************/
+	/* Clicchiamo sui pallini e mostriamo l’ immagine corrispondente */
+
+	// 5.  creo una funzione al click del tasto (pallino) che:
+	// 5.1 rimuove le classi active da tutti gli elementi
+	// 5.2 trova l'indice del pulsante corrente (quello cliccato)
+	// 5.3 aggiunge la classe active al tasto corrente
+	// 5.4 all'immagine con indice uguale all'indice del tasto cliccato aggiunge classe active
+
+	/* $('.nav i').click(function () {
+		// rimozione classi active sia img che icone
+		$('.active').removeClass('active');
+		// indice pulsante corrente 
+		let circleDot = $(this).index();
+		// al pulsante
+		$(this).addClass('active');
+		$('img').eq(circleDot).addClass('active');
+	}) */
+
+	// utilizzo .index() per trovare l'indice dell'elemento corrente
+	// ed .eq() per trovare l'immagine corrispondete a tale indice e settarla ad active
+
+
+
+	function setCircle(obj) {
+		$('.active').removeClass('active');
+		let circleIndex = $(obj).index();
+		$(obj).addClass('active');
+		$('img').eq(circleIndex).addClass('active');
+	}
+
+
+	/* ********************************************************************** */
 
 
 	/* funzione */
@@ -44,6 +84,7 @@ $(document).ready(function () {
 	function nextImg() {
 		// associo ad una variabile locale imgActive il nodo DOM .active
 		let imgActive = $('.images img.active');
+
 		// stessa cosa per i pallini del nav
 		let circleActive = $('.nav i.active');
 		// rimuovo dal imgActive la classe active
@@ -81,15 +122,5 @@ $(document).ready(function () {
 			imgActive.prev().addClass('active');
 			circleActive.prev().addClass('active')
 		}
-
-
-
-
-
-
 	}
-
-
-
-
 });
