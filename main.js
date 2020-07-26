@@ -17,54 +17,52 @@ Consiglio del giorno:
 // 4. procedo all'inverso pulsante prev
 
 
-// 0. inizializzo document ready
+// Inizializzo document ready
 $(document).ready(function () {
 
-
-
-	// 1. associo a .next all'evento .click la chiamata alla funzione di callback nextImg
+	// Associo a .next all'evento .click la chiamata alla funzione di callback nextImg
 	$('.next').click(
 		function () {
 			nextImg();
 
 		});
 
-	// 4. associo a .prev la chiamata alla funzione prevImg
+	// Associo a .prev la chiamata alla funzione prevImg
 	$('.prev').click(
 		function () {
 			prevImg();
 		});
 
-	// BONUS click sul cerchio per cambiare immagine 
-	$('.nav i').click(
-		function () {
-			setCircle(this);
-		});
 
-
-	/******************************** bonus section ***************************/
+	/******************************** BONUS SECTION ***************************/
 	/* Clicchiamo sui pallini e mostriamo l’ immagine corrispondente */
+	/* Funzione anonima al click event */
 
-	// 5.  creo una funzione al click del tasto (pallino) che:
-	// 5.1 rimuove le classi active da tutti gli elementi
-	// 5.2 trova l'indice del pulsante corrente (quello cliccato)
-	// 5.3 aggiunge la classe active al tasto corrente
-	// 5.4 all'immagine con indice uguale all'indice del tasto cliccato aggiunge classe active
+	// 0 creo una funzione al click del tasto (pallino) che:
 
-	/* $('.nav i').click(function () {
-		// rimozione classi active sia img che icone
+	// 1 rimuove le classi active da tutti gli elementi
+	// 2 trova l'indice del pulsante corrente (quello cliccato) - INDEX
+	// 3 aggiunge la classe active al tasto corrente
+	// 4 all'immagine con indice uguale all'indice del tasto cliccato aggiunge classe active - EQ
+
+	$('.nav i').click(function () {
 		$('.active').removeClass('active');
-		// indice pulsante corrente 
 		let circleDot = $(this).index();
-		// al pulsante
 		$(this).addClass('active');
 		$('img').eq(circleDot).addClass('active');
-	}) */
-
+	})
+	// N.B.
 	// utilizzo .index() per trovare l'indice dell'elemento corrente
 	// ed .eq() per trovare l'immagine corrispondete a tale indice e settarla ad active
 
 
+
+	/* Stesso metodo ma creando una funzione setCircle */
+
+	/* $('.nav i').click(
+		function () {
+			setCircle(this);
+		});
 
 	function setCircle(obj) {
 		$('.active').removeClass('active');
@@ -72,12 +70,12 @@ $(document).ready(function () {
 		$(obj).addClass('active');
 		$('img').eq(circleIndex).addClass('active');
 	}
-
+ */
 
 	/* ********************************************************************** */
 
 
-	/* funzione */
+	/* FUNZIONI */
 
 
 	// funzione nextImg - toglie la classe active al nodo corrente e la mette al successivo 
