@@ -34,6 +34,25 @@ $(document).ready(function () {
 		});
 
 
+	// Associo anche la pressione dei tasti 
+	$(document).keydown(function (event) {
+		// quando premo la freccia dx scorre immagini successive
+		if (event.keycode == 39) {
+			nextImg();
+		} else if (event.keyCode == 37) {
+			prevImg();
+		}
+		// oppure anche così
+
+		/* if (event.which == 39) {
+				nextImg();
+				} else if (event.which == 37) {
+					prevImg();
+			} */
+
+	});
+
+
 	/******************************** BONUS SECTION ***************************/
 	/* Clicchiamo sui pallini e mostriamo l’ immagine corrispondente */
 	/* Funzione anonima al click event */
